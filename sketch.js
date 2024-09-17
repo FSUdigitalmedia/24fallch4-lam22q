@@ -2,6 +2,7 @@ let theFont;
 let xPos; // x position of the text
 let xSpeed; // speed of movement
 let colorValue; // color value to change dynamically
+let displayedText = ("Lilly"); // Default text
 
 function preload(){
   theFont = loadFont("assets/ProtestGuerrilla-Regular.ttf");
@@ -36,5 +37,19 @@ function draw() {
  rect(bbox.x/2, bbox.y/2, bbox.w/2, bbox.h/2);
 
  // Draw the text centered vertically, and moving horizontally
- text("Lilly", xPos - bbox.w/2, height/2 + bbox.h/2);
+ text(displayedText, xPos - bbox.w/2, height/2 + bbox.h/2);
+}
+// Adjust text speed based on mouse X position
+xSpeed = map(mouseX, 0, width, -5, 5);
+
+
+// Change the displayed text when a key is pressed
+function keyPressed() {
+  if (key === '1') {
+    displayedText = "Lilly";
+  } else if (key === '2') {
+    displayedText = "Art!";
+  } else if (key === '3') {
+    displayedText = "Hello!";
+  }
 }
