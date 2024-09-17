@@ -4,7 +4,7 @@ let xSpeed; // speed of movement
 let colorValue; // color value to change dynamically
 
 function preload(){
-  theFont = loadFont(assets/ProtestGuerrilla-Regular.ttf);
+  theFont = loadFont("assets/ProtestGuerrilla-Regular.ttf");
 }
 
 function setup() {
@@ -15,8 +15,6 @@ function setup() {
   xSpeed = 2; // speed of movement
   colorValue = 0; // starting color value
 }
-
-
 
 function draw() {
   background(255);
@@ -33,9 +31,9 @@ function draw() {
  colorValue = (colorValue + 1) % 360; // loop from 0 to 360
  fill(color('hsl(' + colorValue + ', 100%, 50%)')); // HSL color mode for smooth transition
 
- // Get text bounds and draw rectangle (optional)
+ // Get text bounds and draw rectangle 
  let bbox = theFont.textBounds('Lilly!', xPos, height/2);
- rect(bbox.x, bbox.y, bbox.w, bbox.h);
+ rect(bbox.x/2, bbox.y/2, bbox.w/2, bbox.h/2);
 
  // Draw the text centered vertically, and moving horizontally
  text("Lilly", xPos - bbox.w/2, height/2 + bbox.h/2);
